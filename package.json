@@ -1,0 +1,26 @@
+{
+  "name": "website-performance-optimization",
+  "version": "0.0.1",
+  "description": "FEND course",
+  "main": "gulp.js",
+  "dependencies": {},
+  "devDependencies": {
+    "browser-sync": "^2.7.13",
+    "gulp": "*",
+    "gulp-autoprefixer": "^2.3.1",
+    "gulp-csscomb": "^3.0.6",
+    "gulp-cssnano": "^1.1.0",
+    "gulp-file-include": "^0.13.2",
+    "gulp-less": "^3.0.3",
+    "gulp-postcss": "^5.1.10",
+    "gulp-rigger": "^0.5.8",
+    "gulp-uncss": "^1.0.3",
+    "gulp-watch": "^4.2.4",
+    "rimraf": "*"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dmitry Krupenya",
+  "license": "ISC"
+}
