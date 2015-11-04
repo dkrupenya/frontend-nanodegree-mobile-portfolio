@@ -1,6 +1,6 @@
 
 # Created by .ignore support plugin (hsz.mobi)
-build
+#build
 node_modules
 bower_components
 spectech_subl.sublime-project
