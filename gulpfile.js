@@ -24,6 +24,8 @@ var csscomb = require('gulp-csscomb');
 var autoprefixer = require('gulp-autoprefixer');
 var nano = require('gulp-cssnano');
 
+var critical = require('critical').stream; //Critical extracts & inlines critical-path (above-the-fold) CSS from HTML
+
 //подключаем gilp-grunt
 //require('gulp-grunt')(gulp);
 
@@ -157,6 +159,13 @@ gulp.task('fonts:build', function() {
         .pipe(gulp.dest(path.build.fonts))
 });
 
+// Generate & Inline Critical-path CSS
+gulp.task('critical', ['html:build', 'style:build'], function () {
+    return gulp.src('build/*.html')
+        .pipe(critical({base: 'build/', inline: true, css: '/css/style.css'}))
+        .pipe(gulp.dest('build'));
+});
+
 //  попросим gulp каждый раз при изменении какого то файла запускать нужную задачу.
 
 gulp.task('watch', function(){
@@ -180,11 +189,10 @@ gulp.task('watch', function(){
 // определим таск с именем «build», который будет запускать все что мы с вами тут накодили
 
 gulp.task('build', [
-    'html:build',
     'js:build',
-    'style:build',
     'fonts:build',
-    'image:build'
+    'image:build',
+    'critical'
 ]);
 
 // Что бы насладиться чудом livereload — нам необходимо создать себе локальный веб-сервер. Для этого напишем следующий простой таск
