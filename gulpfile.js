@@ -124,6 +124,10 @@ gulp.task('style:build', function () {
 //        .pipe(sourcemaps.init()) //То же самое что и с js
         .pipe(less()) //Скомпилируем
 //        .pipe(prefixer()) //Добавим вендорные префиксы
+        .pipe(autoprefixer({
+            browsers: ['last 2 versions'],
+            cascade: false
+        }))
         .pipe(cssmin()) //Сожмем
 //        .pipe(sourcemaps.write())
         .pipe(gulp.dest(path.build.css)) //И в build
