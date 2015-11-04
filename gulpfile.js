@@ -4,12 +4,12 @@
 var gulp = require('gulp'),
     watch = require('gulp-watch'),
 //    prefixer = require('gulp-autoprefixer'),
-//    uglify = require('gulp-uglify'),
+    uglify = require('gulp-uglify'),
 //    sass = require('gulp-sass'),
 //    sourcemaps = require('gulp-sourcemaps'),
     less = require('gulp-less'),
     rigger = require('gulp-rigger'),
-//    cssmin = require('gulp-minify-css'),
+    cssmin = require('gulp-minify-css'),
 //    imagemin = require('gulp-imagemin'),
 //    pngquant = require('imagemin-pngquant'),
     rimraf = require('rimraf'),
@@ -109,7 +109,7 @@ gulp.task('js:build', function () {
             {"base" : "./"})
         .pipe(rigger()) //Прогоним через rigger
 //        .pipe(sourcemaps.init()) //Инициализируем sourcemap
-//        .pipe(uglify()) //Сожмем наш js
+        .pipe(uglify()) //Сожмем наш js
 //        .pipe(sourcemaps.write()) //Пропишем карты
         .pipe(gulp.dest(path.build.js)) //Выплюнем готовый файл в build
         .pipe(reload({stream: true})); //И перезагрузим сервер
@@ -124,7 +124,7 @@ gulp.task('style:build', function () {
 //        .pipe(sourcemaps.init()) //То же самое что и с js
         .pipe(less()) //Скомпилируем
 //        .pipe(prefixer()) //Добавим вендорные префиксы
-//        .pipe(cssmin()) //Сожмем
+        .pipe(cssmin()) //Сожмем
 //        .pipe(sourcemaps.write())
         .pipe(gulp.dest(path.build.css)) //И в build
         .pipe(reload({stream: true}));

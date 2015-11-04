@@ -12,8 +12,10 @@
     "gulp-cssnano": "^1.1.0",
     "gulp-file-include": "^0.13.2",
     "gulp-less": "^3.0.3",
+    "gulp-minify-css": "^1.2.1",
     "gulp-postcss": "^5.1.10",
     "gulp-rigger": "^0.5.8",
+    "gulp-uglify": "^1.4.2",
     "gulp-uncss": "^1.0.3",
     "gulp-watch": "^4.2.4",
     "rimraf": "*"
