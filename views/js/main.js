@@ -410,13 +410,13 @@ var resizePizzas = function(size) {
   function changeSliderLabel(size) {
     switch(size) {
       case "1":
-        document.document.getElementById("pizzaSize").innerHTML = "Small";
+        document.getElementById("pizzaSize").innerHTML = "Small";
         return;
       case "2":
-        documentdocument.getElementById("pizzaSize").innerHTML = "Medium";
+        document.getElementById("pizzaSize").innerHTML = "Medium";
         return;
       case "3":
-        document.document.getElementById("pizzaSize").innerHTML = "Large";
+        document.getElementById("pizzaSize").innerHTML = "Large";
         return;
       default:
         console.log("bug in changeSliderLabel");
@@ -527,7 +527,7 @@ window.addEventListener('scroll', updatePositions);
 
 // Generates the sliding pizzas when the page loads.
 document.addEventListener('DOMContentLoaded', function() {
-  var cols = Math.floor(window.screen.width / 300); // number of pizzas per Row; 256px between pizzas
+  var cols = Math.floor(window.screen.width / 300); // number of pizzas per Row; 300px between pizzas
   var rows = 6; // number of pizzas' rows per screen
   var DX = Math.floor(window.screen.width / cols); // Distance between pizzas by axis X
   var DY = Math.floor(window.screen.height / rows); // Distance between pizzas by axis Y
