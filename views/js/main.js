@@ -1,3 +1,4 @@
+'use strict';
 /*
 Welcome to the 60fps project! Your goal is to make Cam's Pizzeria website run
 jank-free at 60 frames per second.
@@ -409,13 +410,13 @@ var resizePizzas = function(size) {
   function changeSliderLabel(size) {
     switch(size) {
       case "1":
-        document.querySelector("#pizzaSize").innerHTML = "Small";
+        document.document.getElementById("pizzaSize").innerHTML = "Small";
         return;
       case "2":
-        document.querySelector("#pizzaSize").innerHTML = "Medium";
+        documentdocument.getElementById("pizzaSize").innerHTML = "Medium";
         return;
       case "3":
-        document.querySelector("#pizzaSize").innerHTML = "Large";
+        document.document.getElementById("pizzaSize").innerHTML = "Large";
         return;
       default:
         console.log("bug in changeSliderLabel");
@@ -453,7 +454,7 @@ var resizePizzas = function(size) {
 
   // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
-    var all = document.querySelectorAll(".randomPizzaContainer");
+    var all = document.getElementsByClassName("randomPizzaContainer");
     var dx = determineDx(all[0], size); // all pizzas are the same size
     var newWidth = (all[0].offsetWidth + dx) + 'px';
     for (var i = 0; i < all.length; i++) {
@@ -473,8 +474,8 @@ var resizePizzas = function(size) {
 window.performance.mark("mark_start_generating"); // collect timing data
 
 // This for-loop actually creates and appends all of the pizzas when the page loads
+var pizzasDiv = document.getElementById("randomPizzas");
 for (var i = 2; i < 100; i++) {
-  var pizzasDiv = document.getElementById("randomPizzas");
   pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
 
@@ -506,7 +507,7 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
   var scrollPosition = (document.body.scrollTop/ 1250); //every property call will force relayout. get it out from the cycle.
-  for (var i = 0; i < movingPizzas.length; i++) {
+  for (var i = 0, len = movingPizzas.length; i < len; i++) {
     var phase = Math.sin(scrollPosition + (i % 5));
     movingPizzas[i].style.left = movingPizzas[i].basicLeft + 100 * phase + 'px';
   }
@@ -528,15 +529,16 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
+  var elem;
   for (var i = 0; i < 200; i++) {
-    var elem = document.createElement('img');
+    elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza-w77.png";
     //elem.style.height = "100px";
     //elem.style.width = "77px";
     elem.basicLeft = (i % cols) * s;
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
-    document.querySelector("#movingPizzas1").appendChild(elem);
+    document.getElementById("movingPizzas1").appendChild(elem);
     movingPizzas.push(elem); // cache pizzas in the array to remove dom querys later
   }
   updatePositions();

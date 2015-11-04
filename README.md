@@ -10,6 +10,7 @@ Make `npm install` and run `gulp` command in the main folder, the project will b
  * load images through http instead of https                                         
 
 ####Part 2: Optimize Frames per Second in pizza.html
+ * all document.querySelectorAll() are replaced with appropriate faster API functions
  * decrease pizzeria img size and quality for pizza.html                   
  * updatePositions(): replace dom queries with prestored array                                         
  * updatePositions(): remove document.body.scroll call from cycle - greatly improve frame rate 
