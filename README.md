@@ -17,9 +17,10 @@ Make `npm install` and run `gulp` command in the main folder, the project will b
  *optimize changePizzaSizes   
  *nice css hack to force elements into their own composite layer
                                              
-####Gulp tasks                                             
+####Gulp tasks  
+ *add css autoprefixer                                          
  *minify  js and css                                            
- *add css autoprefixer  
+  
                                          
 Size and quality of the pictures were optimized manually.                                        
  
