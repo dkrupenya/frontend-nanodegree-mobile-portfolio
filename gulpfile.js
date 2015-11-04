@@ -162,7 +162,7 @@ gulp.task('fonts:build', function() {
 // Generate & Inline Critical-path CSS
 gulp.task('critical', ['html:build', 'style:build'], function () {
     return gulp.src('build/*.html')
-        .pipe(critical({base: 'build/', inline: true, css: '/css/style.css'}))
+        .pipe(critical({base: 'build/', inline: true, css: 'build/css/style.css'}))
         .pipe(gulp.dest('build'));
 });
 
