@@ -504,9 +504,9 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
-
+  var scrollPosition = (document.body.scrollTop/ 1250); //every property call will force relayout. get it out from the cycle.
   for (var i = 0; i < movingPizzas.length; i++) {
-    var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
+    var phase = Math.sin(scrollPosition + (i % 5));
     movingPizzas[i].style.left = movingPizzas[i].basicLeft + 100 * phase + 'px';
   }
 
