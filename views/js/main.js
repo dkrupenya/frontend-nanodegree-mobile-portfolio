@@ -527,8 +527,8 @@ window.addEventListener('scroll', updatePositions);
 
 // Generates the sliding pizzas when the page loads.
 document.addEventListener('DOMContentLoaded', function() {
-  var cols = 8; // number of pizzas per Row
-  var rows = 12; // number of pizzas rows per screen
+  var cols = Math.floor(window.screen.width / 300); // number of pizzas per Row; 256px between pizzas
+  var rows = 6; // number of pizzas' rows per screen
   var DX = Math.floor(window.screen.width / cols); // Distance between pizzas by axis X
   var DY = Math.floor(window.screen.height / rows); // Distance between pizzas by axis Y
   var elem;
